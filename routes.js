@@ -35,7 +35,7 @@ router.get('/tasks/:id', async(req,res) => {
 });
 
 //Update a task
-router.get('/tasks/:id', async(req, res) => {
+router.put('/tasks/:id', async(req, res) => {
     try{
         const task = await Task.findByIdAndUpdate(
             req.params.id,
