@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const taskRoutes = require('./routes');
 
 //Create an express server and Middleware
 const app = express();
@@ -15,6 +16,9 @@ mongoose.connect(mongoUri, {
     useUnifiedTopology : true
 }).then(() => console.log('Connected to mongoDB'))
   .catch(err => console.error('MongoDb connection error:', err));
+
+//use task routes
+app.use('/', taskRoutes);
 
 //Listener / fire up the server
 app.listen(PORT, () => {
